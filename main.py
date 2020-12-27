@@ -2,7 +2,7 @@ from addition import addition
 from subtraction import subtraction
 from division import division
 from multiplication import multiplication
-from utils import exit_program, remove_prefix_zero
+from utils import exit_program, remove_prefix_zero, remove_suffix_zero
 
 
 def command_line_interface():
@@ -54,7 +54,10 @@ def command_line_interface():
             a = input('a = ')
             b = input('b = ')
             if is_valid(a) and is_valid(b):
-                break
+                a = remove_prefix_zero(a)
+                b = remove_prefix_zero(b)
+                a = remove_suffix_zero(a)
+                b = remove_suffix_zero(b)
             else:
                 print('Invalid input of `a` or(and) `b`')
             if _choice == 4:  # division
@@ -70,6 +73,8 @@ def command_line_interface():
                 if precision < 0:
                     print('Invalid range of `precision`, non-negative value is required')
                     continue
+            else:
+                break
 
         switch = {
             1: addition,

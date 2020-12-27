@@ -1,4 +1,4 @@
-from utils import split_num
+from utils import split_num, remove_prefix_zero, remove_suffix_zero
 
 
 def sub_unsigned(a, b):
@@ -48,6 +48,8 @@ def sub_unsigned(a, b):
         result = int_result
     else:
         return 'No Result', ''
+
+    result = remove_prefix_zero(remove_suffix_zero(result))
 
     return 'OK', result
 
