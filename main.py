@@ -67,6 +67,7 @@ def command_line_interface():
                     break
                 try:
                     precision = int(precision)
+                    break
                 except ValueError:
                     print('Invalid input of `precision`')
                     continue
@@ -90,10 +91,10 @@ def command_line_interface():
             print('-' * 10 + 'Result' + '-' * 10)
             result = remove_prefix_zero(result)  # for human readability
             switch = {
-                1: lambda: print(f'a + b = {a} + {b} = {result}'),
-                2: lambda: print(f'a - b = {a} - {b} = {result}'),
-                3: lambda: print(f'a * b = {a} * {b} = {result}'),
-                4: lambda: print(f'a / b = {a} / {b} = {result}')
+                1: lambda: print(f'a + b = {a} + {b}\n      = {result}'),
+                2: lambda: print(f'a - b = {a} - {b}\n      = {result}'),
+                3: lambda: print(f'a * b = {a} * {b}\n      = {result}'),
+                4: lambda: print(f'a / b = {a} / {b}\n      = {result}')
             }
             switch[_choice]()
             print('-' * 26)
